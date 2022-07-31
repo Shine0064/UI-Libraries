@@ -836,6 +836,9 @@ Midnight.Base.Sidebar.ContentsFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 Midnight.Base.Tabs.Content.Row.Section.AutomaticSize = Enum.AutomaticSize.Y
 Midnight.Base.Tabs.Content.Row.AutomaticSize = Enum.AutomaticSize.Y
 
+Midnight.Base.Tabs.Content.Row.Section.Dropdown.AutomaticSize = Enum.AutomaticSize.Y
+Midnight.Base.Tabs.Content.Row.Section.Dropdown.Options.AutomaticSize = Enum.AutomaticSize.Y
+
 Midnight.Base.Tabs.Content.Visible = false
 Midnight.Base.Tabs.Content.Row.Section.Toggle.Check.Icon.Visible = false
 
@@ -1506,3 +1509,6 @@ function MidnightLib:CreateWindow(ShortTitle, Title)
 end
 
 return MidnightLib
+
+
+
