@@ -974,8 +974,10 @@ end
 -- Conversion Fixes
 Midnight.Base.Sidebar.ContentsFrame.Section.AutomaticSize = Enum.AutomaticSize.Y
 Midnight.Base.Sidebar.ContentsFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+Midnight.Base.Sidebar.ContentsFrame.ScrollBarImageColor3 = Color3.new(0, 0, 0)
 
 Midnight.Base.Tabs.Content.AutomaticCanvasSize = Enum.AutomaticSize.Y
+Midnight.Base.Tabs.Content.ScrollBarImageColor3 = Color3.new(0, 0, 0)
 
 Midnight.Base.Tabs.Content.Row.Section.AutomaticSize = Enum.AutomaticSize.Y
 Midnight.Base.Tabs.Content.Row.AutomaticSize = Enum.AutomaticSize.Y
