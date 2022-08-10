@@ -886,6 +886,17 @@ local function GetParent()
 	return gethui and gethui() or game:GetService("RunService"):IsStudio() and game:GetService("Players").LocalPlayer.PlayerGui or game:GetService("CoreGui")
 end
 
+local function FindFirstDescendant(parent, name)
+	local inst;
+	for _, v in pairs(parent:GetDescendants()) do
+		if v.Name == name then
+			inst = v
+			break
+		end
+	end
+	return inst
+end
+
 local function SwitchTab(Tab, ContentFrame, FrameFolder, TabsFolder)
 	local OldTab;
 	for _, v in pairs(FrameFolder:GetChildren()) do
@@ -897,7 +908,7 @@ local function SwitchTab(Tab, ContentFrame, FrameFolder, TabsFolder)
 	
 	if OldTab then
 		TweenService:Create(
-			TabsFolder:FindFirstChild(OldTab),
+			FindFirstDescendant(TabsFolder, OldTab),
 			TweenInfo.new(
 				0.2,
 				Enum.EasingStyle.Linear,
@@ -963,6 +974,8 @@ end
 -- Conversion Fixes
 Midnight.Base.Sidebar.ContentsFrame.Section.AutomaticSize = Enum.AutomaticSize.Y
 Midnight.Base.Sidebar.ContentsFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+Midnight.Base.Tabs.Content.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
 Midnight.Base.Tabs.Content.Row.Section.AutomaticSize = Enum.AutomaticSize.Y
 Midnight.Base.Tabs.Content.Row.AutomaticSize = Enum.AutomaticSize.Y
@@ -1165,7 +1178,7 @@ function MidnightLib:CreateWindow(ShortTitle, Title)
 			Row2.Parent = NewContentFrame
 			
 			NewTab.MouseButton1Click:Connect(function()
-				SwitchTab(NewTab, NewContentFrame, Window.Base.Tabs, NewTabSection)
+				SwitchTab(NewTab, NewContentFrame, Window.Base.Tabs, NewTabSection.Parent)
 			end)
 			
 			local TabHandle = {}
@@ -1182,7 +1195,7 @@ function MidnightLib:CreateWindow(ShortTitle, Title)
 			end
 			
 			function TabHandle:SwitchTo()
-				SwitchTab(NewTab, NewContentFrame, Window.Base.Tabs, NewTabSection)
+				SwitchTab(NewTab, NewContentFrame, Window.Base.Tabs, NewTabSection.Parent)
 			end
 			
 			function TabHandle:Remove()
@@ -1789,6 +1802,3 @@ function MidnightLib:CreateWindow(ShortTitle, Title)
 end
 
 return MidnightLib
-
-
-
